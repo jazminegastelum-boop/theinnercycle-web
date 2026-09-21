@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Inner Cycle — Descubre por qué te sientes como te sientes</title>
-<meta name="description" content="Una conversación diaria por WhatsApp que conecta tus emociones, energía y comportamientos con tu ciclo. Sin importar en qué etapa estés.">
+<title id="page-title">The Inner Cycle — Descubre por qué te sientes como te sientes</title>
+<meta name="description" id="page-description" content="Una conversación diaria por WhatsApp que conecta tus emociones, energía y comportamientos con tu ciclo. Sin importar en qué etapa estés.">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="canonical" href="https://theinnercycle.com/">
 <!-- Open Graph — imagen y texto al compartir el link por WhatsApp / Instagram / redes -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://theinnercycle.com/">
@@ -345,7 +347,7 @@
     <div class="hero-photo-wrap">
       <div class="hero-photo-bg"></div>
       <div class="hero-logo-wrap">
-        <img src="/logo.jpg" alt="The Inner Cycle" style="width:100px;height:100px;object-fit:contain;border-radius:50%;">
+        <img src="/logo.png" alt="The Inner Cycle" style="width:200px;height:auto;object-fit:contain;">
         <span class="placeholder-handle">@theinnercycle.dxb</span>
       </div>
       <div class="hero-photo-caption">
@@ -423,7 +425,7 @@
     <p data-es="Por eso creé The Inner Cycle. No para decirte cómo sentirte. No para corregirte. Sino para ayudarte a reconocer los patrones que ya existen dentro de ti." data-en="That's why I created The Inner Cycle. Not to tell you how to feel. Not to correct you. But to help you recognize the patterns that already exist within you.">Por eso creé The Inner Cycle. No para decirte cómo sentirte. No para corregirte. Sino para ayudarte a reconocer los patrones que ya existen dentro de ti.</p>
     <p class="story-signature">— Jazmín Gastélum, Dubai</p>
   </div>
-  <div class="story-photo fade-in" style="transition-delay:0.05s;margin-bottom:32px;"><img src="/jazz.jpg" alt="Jazmín Gastélum" style="width:100%;max-width:400px;height:320px;object-fit:cover;object-position:center top;display:block;border:1px solid var(--border);"></div><div class="story-stats fade-in" style="transition-delay:0.15s">
+  <div class="story-photo fade-in" style="transition-delay:0.05s;margin-bottom:32px;"><img src="/jazz.png" alt="Jazmín Gastélum" style="width:100%;max-width:400px;height:320px;object-fit:cover;object-position:center top;display:block;border:1px solid var(--border);"></div><div class="story-stats fade-in" style="transition-delay:0.15s">
     <div class="stat-item">
       <div class="stat-number">100%</div>
       <div class="stat-label" data-es="Por WhatsApp — sin apps que instalar, sin logins, sin fricción" data-en="Via WhatsApp — no apps, no logins, no friction">Por WhatsApp — sin apps que instalar, sin logins, sin fricción</div>
@@ -700,6 +702,10 @@
   const STRIPE_EN = 'https://buy.stripe.com/cNi9AN4Jnenx2hfcng9sk00';
   const PRICE_ES = '<span>$</span>10';
   const PRICE_EN = '<span>$</span>15';
+  const TITLE_ES = 'The Inner Cycle — Descubre por qué te sientes como te sientes';
+  const TITLE_EN = 'The Inner Cycle — Discover why you feel the way you feel';
+  const DESC_ES = 'Una conversación diaria por WhatsApp que conecta tus emociones, energía y comportamientos con tu ciclo. Sin importar en qué etapa estés.';
+  const DESC_EN = 'A daily WhatsApp conversation that connects your emotions, energy, and behavior to your cycle. No matter what stage you\'re in.';
 
   function setLang(lang) {
     currentLang = lang;
@@ -713,6 +719,9 @@
     const pricingAmount = document.getElementById('pricing-amount');
     if (lang === 'es') { stripeBtn.href = STRIPE_ES; pricingAmount.innerHTML = PRICE_ES; }
     else { stripeBtn.href = STRIPE_EN; pricingAmount.innerHTML = PRICE_EN; }
+    document.documentElement.lang = lang;
+    document.title = lang === 'es' ? TITLE_ES : TITLE_EN;
+    document.getElementById('page-description').setAttribute('content', lang === 'es' ? DESC_ES : DESC_EN);
   }
 
   async function submitForm() {
@@ -746,3 +755,8 @@
 </script>
 </body>
 </html>
+
+Tab Context:
+- Executed on tabId: seed
+- Available tabs:
+  • tabId seed: "raw.githubusercontent.com/jazminegastelum-boop/theinnercycle-web/main/index.html" (https://raw.githubusercontent.com)
